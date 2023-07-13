@@ -133,9 +133,6 @@ const WorldMap = (props: WorldMapTypes.IWorldMapProps) => {
     
     // @ts-ignore
     svg.call(zoom);
-
-    console.log("props.mapData.mapFeatures -111111: ", props.mapData.mapFeatures);
-
   }, [parsedCoordinatesData])
   
   return(

@@ -5,9 +5,6 @@ import {WorldMapTypes} from '../WorldMap/types';
 
 const DrawWorldMap = ({mapFeatures}:WorldMapTypes.MapObject) => {
   const projection = geoEquirectangular();
-
-  console.log("Draw world map!! ");
-  console.log("lastttt data: ", mapFeatures);
   
   return(
     <g>

@@ -13,7 +13,7 @@ const Dashboard = () => {
 
     const [mapData, setMapData] = useState<WorldMapTypes.MapObject>({mapFeatures: []});
     const [coordinatesData, setCoordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);
-    console.log(coordinatesData)
+    console.log("coordinatesData:", coordinatesData)
 
     useEffect(() => {
         if(coordinatesData.length === 0){
