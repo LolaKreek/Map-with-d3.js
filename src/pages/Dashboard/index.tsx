@@ -9,7 +9,7 @@ import '../Dashboard/style.css';
 import WorldMap from '../../components/WorldMap';
 
 const Dashboard = () => {
-    const title: string = 'Table with statuses';
+    const title: string = 'Status table';
 
     const [mapData, setMapData] = useState<WorldMapTypes.MapObject>({mapFeatures: []});
     const [coordinatesData, setCoordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);

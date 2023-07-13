@@ -26,21 +26,21 @@ const getHoverBackgroundColor = (color: string, mode: string) =>
   mode === 'dark' ? darken(color, 0.5) : lighten(color, 0.5);
 
 const MarkerTable: React.FC<TableTypes.TableProps> = ({ data, title }) => {
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const cellHoverGrey = blueGrey[100];
   const headerBlue = blue[100];
 
   return (
     <div className='markers-table__wrapper'>
         <Typography className='markers-table__main-header' variant="h4" component="h4">{title}</Typography>
-        
-        <DataGrid
+
+         <DataGrid
           rows={data}
           columns={columns}
-          // pageSize={rowsPerPage}
-          // onPageSizeChange={(newPageSize) => setRowsPerPage(newPageSize)}
-          // rowsPerPageOptions={[5, 10, 20]}
-          // getEstimatedRowHeight={() => 100}
+          initialState={{
+            pagination: { paginationModel: { pageSize: rowsPerPage } },
+          }}
+          pageSizeOptions={[5, 10, 25]}
           getRowHeight={() => 'auto'}
           sx={{
             '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': {

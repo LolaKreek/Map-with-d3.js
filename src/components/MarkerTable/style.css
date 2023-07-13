@@ -1,11 +1,13 @@
 .markers-table__wrapper{
     width: 95%;
-    height: 741px;
+    height: 421px;
     margin: 0 auto;
 }
 
 .markers-table__main-header{
     text-align: center;
+    font-weight: 800;
+    color: #F2C94C;
 }
 
 .dot-1, .dot-2, .dot-3, .dot-4{
