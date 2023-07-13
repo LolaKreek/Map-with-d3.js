@@ -1,0 +1,52 @@
+.markers-table__wrapper{
+    width: 95%;
+    height: 741px;
+    margin: 0 auto;
+}
+
+.markers-table__main-header{
+    text-align: center;
+}
+
+.dot-1, .dot-2, .dot-3, .dot-4{
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.dot-3 .dot-additional, .dot-2 .dot-additional, .dot-1 .dot-additional{
+    display: none;
+}
+
+.dot-1{
+    background-color: #27AE60;
+}
+
+.dot-2{
+    background-color: #DF0B0B;
+}
+
+.dot-3{
+    background-color: #F2C94C;
+}
+
+.dot-4{
+    background-color: #27AE60;
+    position: relative;
+}
+
+.dot-4 .dot-additional{
+    position: absolute;
+    top: -19px;
+    left: 12px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.markers-table__dense-padding{
+    padding: 10px 0 0 20px;
+}

@@ -1,0 +1,60 @@
+.map-svg{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 90%;
+    min-height: 200px;
+    margin-left: 5%;
+}
+
+.country{
+    fill: rgba(96, 96, 96);
+    stroke: aliceblue;
+    stroke-opacity: 0.2;
+    stroke-width: 0.3;
+    cursor: pointer;
+}
+
+.country:hover{
+    transition: fill .7s;
+    fill: #FFC300;
+
+}
+
+.markers-map__info-wrapper{
+    fill: #CDCDCD;
+    fill-opacity: 0.8;
+}
+
+.markers-map__info-header{
+    font-size: 5px;
+    font-weight: 600;
+    fill: black;
+}
+
+.markers-map__info{
+    font-size: 4px;
+    fill: black;
+}
+
+.markers-circle{
+    stroke: aliceblue;
+    stroke-width: 0.2;
+    cursor: pointer;
+}
+
+.country-name{
+    border: 1px solid red;
+}
+
+.markers-circle-group-info{
+    stroke: white;
+    font-size: 11px;
+}
+
+.markers-map__info-cancel{
+    stroke: red;
+    stroke-width: 0.2;
+    fill: red;
+    font-size: 5px;
+    cursor: pointer;
+}
