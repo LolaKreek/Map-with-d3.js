@@ -133,12 +133,15 @@ const WorldMap = (props: WorldMapTypes.IWorldMapProps) => {
     
     // @ts-ignore
     svg.call(zoom);
+
+    console.log("props.mapData.mapFeatures -111111: ", props.mapData.mapFeatures);
+
   }, [parsedCoordinatesData])
   
   return(
     <div>
       <svg className='map-svg' viewBox={mapViewBox} ref={mapRef}>
-        {/* <g>
+        <g>
           <DrawWorldMap mapFeatures={props.mapData.mapFeatures as []} />
           <g ref={markerRef}>
             {!ifPageLoad ? 
@@ -147,7 +150,7 @@ const WorldMap = (props: WorldMapTypes.IWorldMapProps) => {
               : <DrawGroupMarkers mainCoordinatesArray={mainCoordinatesArray} radius={radius}/>
             : <></>}
           </g>
-        </g> */}
+        </g>
       </svg>
     </div>
   )

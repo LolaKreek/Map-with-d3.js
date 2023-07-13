@@ -34,12 +34,12 @@ const MarkerTable: React.FC<TableTypes.TableProps> = ({ data, title }) => {
     <div className='markers-table__wrapper'>
         <Typography className='markers-table__main-header' variant="h4" component="h4">{title}</Typography>
         
-        {/* <DataGrid
+        <DataGrid
           rows={data}
           columns={columns}
-          pageSize={rowsPerPage}
-          onPageSizeChange={(newPageSize) => setRowsPerPage(newPageSize)}
-          rowsPerPageOptions={[5, 10, 20]}
+          // pageSize={rowsPerPage}
+          // onPageSizeChange={(newPageSize) => setRowsPerPage(newPageSize)}
+          // rowsPerPageOptions={[5, 10, 20]}
           // getEstimatedRowHeight={() => 100}
           getRowHeight={() => 'auto'}
           sx={{
@@ -68,7 +68,7 @@ const MarkerTable: React.FC<TableTypes.TableProps> = ({ data, title }) => {
             }
           }}
           getRowClassName={() => `super-app-theme-all`}
-        /> */}
+        />
     </div>
   );
 };

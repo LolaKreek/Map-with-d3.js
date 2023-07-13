@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { WorldMapTypes } from '../../components/WorldMap/types';
 import { queue } from 'd3-queue';
-import { csv, json } from 'd3-request';
+import { json } from 'd3-request';
 import { FeatureCollection } from 'geojson';
 import { feature } from 'topojson-client';
-import WorldMap from '../../components/WorldMap';
 import MarkerTable from '../../components/MarkerTable';
 import '../Dashboard/style.css';
+import WorldMap from '../../components/WorldMap';
 
 const Dashboard = () => {
     const title: string = 'Table with statuses';
@@ -25,7 +25,7 @@ const Dashboard = () => {
                     if(error){
                         console.log(`We have a problem: ${error}`);
                     }
-                    // setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
+                    setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
                     setCoordinatesData(d2);
                 })
         }
@@ -33,7 +33,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            {/* <WorldMap mapData={mapData} coordinatesData={coordinatesData} scale={200} cx={400} cy={400} /> */}
+            <WorldMap mapData={mapData} coordinatesData={coordinatesData} scale={200} cx={400} cy={400} />
 
             <div className='table-state-container'>
                 <MarkerTable title={title} data={coordinatesData} />
