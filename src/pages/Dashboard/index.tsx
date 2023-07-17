@@ -1,19 +1,23 @@
-import React, {useState, useEffect} from 'react';
-import { WorldMapTypes } from '../../components/WorldMap/types';
-import { queue } from 'd3-queue';
-import { json } from 'd3-request';
-import { FeatureCollection } from 'geojson';
-import { feature } from 'topojson-client';
-import MarkerTable from '../../components/MarkerTable';
-import '../Dashboard/style.css';
-import WorldMap from '../../components/WorldMap';
+import { useEffect, useRef, useState } from "react";
+import { feature } from "topojson-client";
+import { FeatureCollection } from "geojson";
+import { queue } from "d3-queue";
+import { json } from "d3-request";
+import { WorldMapTypes } from "../../components/WorldMap/types";
+import MarkerTable from "../../components/MarkerTable";
+import WorldMap from "../../components/WorldMap";
+import { MarkerTableColumns } from "../../components/MarkerTable/MarkerTableColumns";
+import './style.css';
+import { DriveFileMove } from "@mui/icons-material";
+import Markers from "../../components/Markers";
 
 const Dashboard = () => {
-    const title: string = 'Status table';
-
-    const [mapData, setMapData] = useState<WorldMapTypes.MapObject>({mapFeatures: []});
+    const mapViewBox:string                     = '0 0 960 470';
+    const mapRef                                = useRef<SVGSVGElement>(null);
+    const markerRef                             = useRef<SVGGElement>(null);
+    const title: string                         = 'Status table';
+    const [mapData, setMapData]                 = useState<WorldMapTypes.MapObject>({mapFeatures: []});
     const [coordinatesData, setCoordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);
-    console.log("coordinatesData:", coordinatesData)
 
     useEffect(() => {
         if(coordinatesData.length === 0){
@@ -23,21 +27,29 @@ const Dashboard = () => {
                 .defer(json, fileName[1])
                 .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
                     if(error){
-                        console.log(`We have a problem: ${error}`);
+                        console.log(`You have a problem: ${error}`);
                     }
                     setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
                     setCoordinatesData(d2);
                 })
         }
-    }, [coordinatesData])
+    }, [])
 
     return (
-        <div>
-            <WorldMap mapData={mapData} coordinatesData={coordinatesData} scale={200} cx={400} cy={400} />
+        <div className="dashboard__main-container">
+            <svg className='map-svg' viewBox={mapViewBox} ref={mapRef}>
+                <g>
+                    <g>
+                        <WorldMap mapData={mapData} mapRef={mapRef}/>
+                    </g>
 
-            <div className='table-state-container'>
-                <MarkerTable title={title} data={coordinatesData} />
-            </div>
+                    <g ref={markerRef}>
+                        <Markers coordinates={coordinatesData} radius={8} />
+                    </g>
+                </g>
+            </svg>
+            
+            <MarkerTable coordinates={coordinatesData} title={title} columns={MarkerTableColumns} markerRef={markerRef} />
         </div>
     );
 };

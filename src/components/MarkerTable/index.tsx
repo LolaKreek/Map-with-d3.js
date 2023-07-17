@@ -1,76 +1,85 @@
 import { Typography } from '@mui/material';
-import React, { useState } from 'react';
-import { TableTypes } from './types';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { TableTypes } from './tyles';
 import { darken, lighten } from '@mui/material/styles';
+import { DataGrid, GridRowSelectionModel } from '@mui/x-data-grid';
 import { blueGrey, blue } from '@mui/material/colors';
-import '../MarkerTable/style.css';
+import * as d3 from 'd3';
+import './slyle.css';
+import returnProjectionValueWhenValid from '../../features/worldMap/returnProjectionValueWhenValid';
 
-const columns: GridColDef[] = [
-  { field: 'statusColor', headerName: 'Status color', flex: 0.5, type: 'number', headerAlign: 'center', renderCell: (params) => {
-    return (
-      <span className={`dot-${params.row.statusColor}`}><p className='dot-additional'>&#33;</p></span>
-    );
- } },
-  { field: 'name', headerName: 'Container name', flex: 1, headerAlign: 'center', align: 'center' },
-  { field: 'status', headerName: 'Status', flex: 1, headerAlign: 'center', align: 'center' },
-  { field: 'ifChecked', headerName: 'Checked (yes/no)', flex: 1, type: 'boolean', headerAlign: 'center', align: 'center' },
-  { field: 'correctness',  headerName: 'Correctness (yes/no) / degree of correctness',  flex: 1.3, type: 'string', headerAlign: 'center', align: 'center' },
-  { field: 'notes', headerName: 'Notes', flex: 1.2, headerAlign: 'center', align: 'center' }
-];
+const MarkerTable = ({coordinates, title, columns, markerRef}: TableTypes.TableProps) => {
+    const rowsPerPage = 5;
+    const cellHoverGrey = blueGrey[100];
+    const headerBlue = blue[100];
+    const markerSvg = d3.select(markerRef.current);
 
-const getBackgroundColor = (color: string, mode: string) =>
-  mode === 'dark' ? darken(color, 0.6) : lighten(color, 0.6);
+    const getBackgroundColor = (color: string, mode: string) =>
+        mode === 'dark' ? darken(color, 0.6) : lighten(color, 0.6);
 
-const getHoverBackgroundColor = (color: string, mode: string) =>
-  mode === 'dark' ? darken(color, 0.5) : lighten(color, 0.5);
+    const getHoverBackgroundColor = (color: string, mode: string) =>
+        mode === 'dark' ? darken(color, 0.5) : lighten(color, 0.5);
 
-const MarkerTable: React.FC<TableTypes.TableProps> = ({ data, title }) => {
-  const [rowsPerPage, setRowsPerPage] = useState(5);
-  const cellHoverGrey = blueGrey[100];
-  const headerBlue = blue[100];
+    const setCurrentMarker = (ids: GridRowSelectionModel) => {
+        const currentItem = coordinates.find(item => item.id == ids[0])
+        if(currentItem){
+            markerSvg.selectChild().remove()
+            markerSvg.append('g').append('circle')
+                .attr('cx', returnProjectionValueWhenValid([currentItem.latitude, currentItem.longitude], 0))
+                .attr('cy', returnProjectionValueWhenValid([currentItem.latitude, currentItem.longitude], 1))
+                .attr("r", 10)
+                .attr("fill", currentItem.statusColor == 1 ? '#27AE60' : (currentItem.statusColor == 2 ? "#DF0B0B" : "#F2C94C"))
+                .attr("className", 'markers-circle')
+        }
+    }
 
-  return (
-    <div className='markers-table__wrapper'>
-        <Typography className='markers-table__main-header' variant="h4" component="h4">{title}</Typography>
+    return(
+        <div className='markers-table__wrapper'>
+            <Typography className='markers-table__main-header' variant="h4" component="h4">{title}</Typography>
 
-         <DataGrid
-          rows={data}
-          columns={columns}
-          initialState={{
-            pagination: { paginationModel: { pageSize: rowsPerPage } },
-          }}
-          pageSizeOptions={[5, 10, 25]}
-          getRowHeight={() => 'auto'}
-          sx={{
-            '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': {
-              py: '15px',
-            },
-            '& .super-app-theme-all': {
-              bgcolor: (theme) =>
-                getBackgroundColor(theme.palette.common.white, theme.palette.mode),
-              '&:hover': {
-                bgcolor: (theme) =>
-                  getHoverBackgroundColor(cellHoverGrey, theme.palette.mode),
-              },
-            },
-            '& .super-app-theme-header': {
-              bgcolor: (theme) =>
-                getBackgroundColor(headerBlue, theme.palette.mode),
-              '&:hover': {
-                bgcolor: (theme) =>
-                  getHoverBackgroundColor(cellHoverGrey, theme.palette.mode),
-              },
-            },
-            "& .MuiDataGrid-columnHeaders": {
-              backgroundColor: "#FFC300",
-              color: "black"
-            }
-          }}
-          getRowClassName={() => `super-app-theme-all`}
-        />
-    </div>
-  );
-};
+            <DataGrid
+                rows={coordinates}
+                columns={columns}
+                initialState={{
+                    pagination: { paginationModel: { pageSize: rowsPerPage } },
+                }}
+                pageSizeOptions={[5, 10, 25]}
+                getRowHeight={() => 'auto'}
+                sx={{
+                    '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': {
+                        py: '15px'
+                    },
+                    '& .super-app-theme-all': {
+                        bgcolor: (theme) =>
+                            getBackgroundColor(theme.palette.common.white, theme.palette.mode),
+                    '&:hover': {
+                        bgcolor: (theme) =>
+                            getHoverBackgroundColor(cellHoverGrey, theme.palette.mode),
+                        },
+                    },
+                    '& .super-app-theme-header': {
+                        bgcolor: (theme) =>
+                            getBackgroundColor(headerBlue, theme.palette.mode),
+                    '&:hover': {
+                        bgcolor: (theme) =>
+                            getHoverBackgroundColor(cellHoverGrey, theme.palette.mode),
+                        },
+                    },
+                    "& .MuiDataGrid-columnHeaders": {
+                        backgroundColor: "#FFC300",
+                        color: "black"
+                    },
+                    '& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-cell:focus': {
+                        outline: 'none',
+                    },
+                    '.MuiDataGrid-row.Mui-selected':{
+                        backgroundColor: 'lightgrey!important'
+                    }
+                }}
+                getRowClassName={() => `super-app-theme-all`}
+                onRowSelectionModelChange={(ids) => setCurrentMarker(ids)}
+            />
+        </div>
+    )
+}
 
 export default MarkerTable;

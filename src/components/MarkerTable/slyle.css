@@ -1,5 +1,5 @@
 .markers-table__wrapper{
-    width: 95%;
+    width: 90%;
     height: 421px;
     margin: 0 auto;
 }
@@ -8,6 +8,10 @@
     text-align: center;
     font-weight: 800;
     color: #F2C94C;
+}
+
+.MuiDataGrid-footerContainer{
+    background-color: #F2C94C;
 }
 
 .dot-1, .dot-2, .dot-3, .dot-4{
