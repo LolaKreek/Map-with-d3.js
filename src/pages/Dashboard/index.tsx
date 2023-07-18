@@ -10,6 +10,7 @@ import { MarkerTableColumns } from "../../components/MarkerTable/MarkerTableColu
 import './style.css';
 import { DriveFileMove } from "@mui/icons-material";
 import Markers from "../../components/Markers";
+import MapLegend from "../../components/MapLegend";
 
 const Dashboard = () => {
     const mapViewBox:string                     = '0 0 960 470';
@@ -37,17 +38,24 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard__main-container">
-            <svg className='map-svg' viewBox={mapViewBox} ref={mapRef}>
-                <g>
+            <div className="dashboard-map-svg__main-container">
+                <svg className='map-svg' viewBox={mapViewBox} ref={mapRef}>
                     <g>
-                        <WorldMap mapData={mapData} mapRef={mapRef}/>
-                    </g>
+                        <g>
+                            <WorldMap mapData={mapData} mapRef={mapRef}/>
+                        </g>
 
-                    <g ref={markerRef}>
-                        <Markers coordinates={coordinatesData} radius={8} />
+                        <g ref={markerRef}>
+                            <Markers coordinates={coordinatesData} radius={8} />
+                        </g>
                     </g>
-                </g>
-            </svg>
+                </svg>
+
+                <div className="map-legend__main-container">
+                    <p className="map-legend-main-container__main-header">Map legend</p>
+                    <MapLegend coordinates={coordinatesData} markerRef={markerRef} />
+                </div>
+            </div>
             
             <MarkerTable coordinates={coordinatesData} title={title} columns={MarkerTableColumns} markerRef={markerRef} />
         </div>

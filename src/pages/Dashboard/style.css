@@ -7,3 +7,22 @@
     margin-bottom: 50px;
     border-radius: 5px;
 }
+
+.dashboard-map-svg__main-container{
+    position: relative;
+}
+
+.map-legend__main-container{
+    position: absolute;
+    bottom: 5%;
+    left: 7%;
+    background-color: #FFC300;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+}
+
+.map-legend-main-container__main-header{
+    margin: 5% 5% 2% 5%;
+    padding: 0;
+}

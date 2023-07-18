@@ -1,0 +1,12 @@
+.map-legend__dots-main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin: 0 5% 5% 3%;
+}
+
+.map-legend__dots{
+    margin-left: 5px;
+    cursor: pointer;
+}

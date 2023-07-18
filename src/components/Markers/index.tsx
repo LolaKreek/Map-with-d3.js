@@ -20,36 +20,36 @@ const Markers = ({coordinates, radius}: MarkersTypes.MarkersProps) => {
             {currentGItem != null ?
                 <g>
                     <rect
-                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude + -12), coordinates[currentGItem].longitude], 0)}
+                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude + -15), coordinates[currentGItem].longitude], 0)}
                         y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude)], 1)}
                         rx={2} 
                         height={30}
-                        width={60}
-                        className='markers-map__info-wrapper'/>
+                        width={80}
+                        className='markers-map__info-wrapper' />
                     <text 
                         onClick={() => setCurrentGItem(null)}
-                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude + +8.5), coordinates[currentGItem].longitude], 0)} 
+                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude + +12.5), coordinates[currentGItem].longitude], 0)} 
                         y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, coordinates[currentGItem].longitude - +2], 1)}
                         className='markers-map__info-cancel'>x</text>
                     <text 
                         x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +9.5), coordinates[currentGItem].longitude], 0)} 
-                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, coordinates[currentGItem].longitude - +3], 1)}
+                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, coordinates[currentGItem].longitude - +4.5], 1)}
                         className='markers-map__info-header'>{coordinates[currentGItem].name}</text>
                     <text 
-                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +11.5), coordinates[currentGItem].longitude], 0)} 
-                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +4.5)], 1)}
+                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +13.5), coordinates[currentGItem].longitude], 0)} 
+                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +6)], 1)}
                         className='markers-map__info'>{coordinates[currentGItem].status}</text>
                     <text 
-                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +11.5), coordinates[currentGItem].longitude], 0)} 
-                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +6)], 1)}
+                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +13.5), coordinates[currentGItem].longitude], 0)} 
+                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +7.5)], 1)}
                         className='markers-map__info'>Correctness: {coordinates[currentGItem].correctness}</text>
                     <text 
-                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +11.5), coordinates[currentGItem].longitude], 0)} 
-                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +7.5)], 1)}
+                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +13.5), coordinates[currentGItem].longitude], 0)} 
+                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +9)], 1)}
                         className='markers-map__info'>Latitude: {coordinates[currentGItem].latitude}</text>
                     <text
-                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +11.5), coordinates[currentGItem].longitude], 0)} 
-                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +9)], 1)}
+                        x={returnProjectionValueWhenValid([(+coordinates[currentGItem].latitude - +13.5), coordinates[currentGItem].longitude], 0)} 
+                        y={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, (+coordinates[currentGItem].longitude - +10.5)], 1)}
                         className='markers-map__info'>Longitude: {coordinates[currentGItem].longitude}</text>
                     <circle
                         cx={returnProjectionValueWhenValid([coordinates[currentGItem].latitude, coordinates[currentGItem].longitude], 0)} 

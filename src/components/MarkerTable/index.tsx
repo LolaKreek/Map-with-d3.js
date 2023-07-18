@@ -23,10 +23,12 @@ const MarkerTable = ({coordinates, title, columns, markerRef}: TableTypes.TableP
         const currentItem = coordinates.find(item => item.id == ids[0])
         if(currentItem){
             markerSvg.selectChild().remove()
-            markerSvg.append('g').append('circle')
+            markerSvg.append('g').append('g').append('circle')
                 .attr('cx', returnProjectionValueWhenValid([currentItem.latitude, currentItem.longitude], 0))
                 .attr('cy', returnProjectionValueWhenValid([currentItem.latitude, currentItem.longitude], 1))
                 .attr("r", 10)
+                .attr("stroke", 'aliceblue')
+                .attr("stroke-width", 0.2)
                 .attr("fill", currentItem.statusColor == 1 ? '#27AE60' : (currentItem.statusColor == 2 ? "#DF0B0B" : "#F2C94C"))
                 .attr("className", 'markers-circle')
         }
