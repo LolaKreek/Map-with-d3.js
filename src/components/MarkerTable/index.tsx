@@ -71,9 +71,13 @@ const MarkerTable = ({coordinates, title, columns, markerRef}: TableTypes.TableP
                     '& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-cell:focus': {
                         outline: 'none',
                     },
-                    '.MuiDataGrid-row.Mui-selected':{
+                    '& .MuiDataGrid-row.Mui-selected': {
                         backgroundColor: 'lightgrey!important'
+                    },
+                    '& .MuiDataGrid-booleanCell' : {
+                        fontSize: '1.7em'
                     }
+
                 }}
                 getRowClassName={() => `super-app-theme-all`}
                 onRowSelectionModelChange={(ids) => setCurrentMarker(ids)}
