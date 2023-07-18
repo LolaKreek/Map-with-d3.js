@@ -5,7 +5,6 @@ import { WorldMapTypes } from '../WorldMap/types';
 import * as d3 from 'd3';
 import './style.css'
 import returnProjectionValueWhenValid from '../../features/worldMap/returnProjectionValueWhenValid';
-import LightTooltip from '../LightTooltip';
 
 const MapLegend = ({coordinates, markerRef}: MapLegendTypes.MapLegendProps) => {
     const [selectedGroup, setSelectedGroup] = useState<WorldMapTypes.CoordinatedData[]>([]);
