@@ -8,20 +8,19 @@ import './style.css'
 
 const WorldMap = ({mapData, mapRef}: WorldMapTypes.IWorldMapProps) => {
     const projection = geoEquirectangular();
-    const svg        = d3.select(mapRef.current);
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
         .scaleExtent([1, 5])
         .translateExtent([[0, 0], [960, 470]])
         .on("zoom", ((e) => {
         //@ts-ignore
-        svg.selectChild().attr('transform', e.transform);
+        d3.select(mapRef.current).selectChild().attr('transform', e.transform);
     }));
 
     useEffect(() => {
         // @ts-ignore
-        svg.call(zoom);
-    })
+        d3.select(mapRef.current).call(zoom);
+    }, [])
 
     return(
         <g>

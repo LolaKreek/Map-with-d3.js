@@ -44,11 +44,13 @@ const Dashboard = () => {
                 {ifPageLoad ?  <div className="dashboard-map-svg__main-container">
                     <svg className='map-svg' viewBox={mapViewBox} ref={mapRef}>
                         <g>
-                            <WorldMap mapData={mapData} mapRef={mapRef}/>
-                        </g>
+                            <g>
+                                <WorldMap mapData={mapData} mapRef={mapRef}/>
+                            </g>
 
-                        <g ref={markerRef}>
-                            <Markers coordinates={coordinatesData} radius={8} />
+                            <g ref={markerRef}>
+                                <Markers coordinates={coordinatesData} radius={8} />
+                            </g>
                         </g>
                     </svg>
 
