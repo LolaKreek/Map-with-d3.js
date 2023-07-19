@@ -7,8 +7,6 @@ import DrawOneMarker from "./DrawOneMarker";
 const Markers = ({coordinates, radius}: MarkersTypes.MarkersProps) => {
     const [currentGItem, setCurrentGItem] = useState<number | null>(null);
 
-    console.log("coordinates: ", coordinates);
-
     return(
         <g>
             {coordinates.map((d, i) => (

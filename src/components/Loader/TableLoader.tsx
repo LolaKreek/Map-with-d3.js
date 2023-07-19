@@ -1,5 +1,6 @@
 import { Skeleton, Table, TableBody, TableCell, TableRow } from "@mui/material"
 import { LoaderTypes } from "./types"
+import { v4 as uuidv4 } from 'uuid';
 
 const TableLoader = ({rowsNumber}: LoaderTypes.LoaderTableProps) => {
     return(
@@ -9,25 +10,25 @@ const TableLoader = ({rowsNumber}: LoaderTypes.LoaderTableProps) => {
             <Table>
                 <TableBody>
                     {[...Array(rowsNumber)].map(() => (
-                        <TableRow>
-                        <TableCell component="th" scope="row">
-                          <Skeleton animation="wave" variant="text" />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton animation="wave" variant="text" />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton animation="wave" variant="text" />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton animation="wave" variant="text" />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton animation="wave" variant="text" />
-                        </TableCell>
-                        <TableCell>
-                          <Skeleton animation="wave" variant="text" />
-                        </TableCell>
+                        <TableRow key={uuidv4()}>
+                          <TableCell component="th" scope="row">
+                            <Skeleton animation="wave" variant="text" />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton animation="wave" variant="text" />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton animation="wave" variant="text" />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton animation="wave" variant="text" />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton animation="wave" variant="text" />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton animation="wave" variant="text" />
+                          </TableCell>
                       </TableRow>
                     ))}
                 </TableBody>

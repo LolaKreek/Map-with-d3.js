@@ -11,7 +11,6 @@ const MarkerTable = ({coordinates, title, columns, markerRef}: TableTypes.TableP
     const rowsPerPage = 5;
     const cellHoverGrey = blueGrey[100];
     const headerBlue = blue[100];
-    const markerSvg = d3.select(markerRef.current);
 
     const getBackgroundColor = (color: string, mode: string) =>
         mode === 'dark' ? darken(color, 0.6) : lighten(color, 0.6);
@@ -21,6 +20,7 @@ const MarkerTable = ({coordinates, title, columns, markerRef}: TableTypes.TableP
 
     const setCurrentMarker = (ids: GridRowSelectionModel) => {
         const currentItem = coordinates.find(item => item.id == ids[0])
+        const markerSvg = d3.select(markerRef.current);
         if(currentItem){
             markerSvg.selectChild().remove()
             markerSvg.append('g').append('g').append('circle')
