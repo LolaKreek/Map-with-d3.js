@@ -2,6 +2,7 @@
     React - https://pl.reactjs.org/
     Type Script - https://www.typescriptlang.org/
     Vite - https://vitejs.dev
+    D3.js - https://d3js.org
 
 # Getting Started
 
