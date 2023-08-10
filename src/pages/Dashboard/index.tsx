@@ -24,7 +24,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(coordinatesData.length === 0){
-            const fileName = ['../data/countries-110m.json', '../data/coordinates.json']
+            const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
             queue()
                 .defer(json, fileName[0])
                 .defer(json, fileName[1])
@@ -32,11 +32,11 @@ const Dashboard = () => {
                     if(error){
                         console.log(`You have a problem: ${error}`);
                     }
-                    setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
-                    setCoordinatesData(d2);
                     console.log("d1: ", d1);
                     console.log("d2: ", d2);
                     console.log("error: ", error);
+                    setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
+                    setCoordinatesData(d2);
                 })
             console.log("fileName: ", fileName);
         }
