@@ -34,6 +34,9 @@ const Dashboard = () => {
                     }
                     setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
                     setCoordinatesData(d2);
+                    console.log("d1: ", d1);
+                    console.log("d2: ", d2);
+                    console.log("error: ", error);
                 })
             console.log("fileName: ", fileName);
         }
