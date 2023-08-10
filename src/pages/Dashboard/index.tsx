@@ -24,7 +24,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(coordinatesData.length === 0){
-            const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
+            const fileName = ['../data/countries-110m.json', '../data/coordinates.json']
             queue()
                 .defer(json, fileName[0])
                 .defer(json, fileName[1])
