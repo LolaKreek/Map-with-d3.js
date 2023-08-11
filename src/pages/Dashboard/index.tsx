@@ -12,6 +12,7 @@ import Markers from "../../components/Markers";
 import MapLegend from "../../components/MapLegend";
 import TableLoader from "../../components/Loader/TableLoader";
 import MapLoader from "../../components/Loader/MapLoader";
+import "../../../dist/data/coordinates.json"
 
 const Dashboard = () => {
     const mapViewBox:string                     = '0 0 960 470';
@@ -25,7 +26,7 @@ const Dashboard = () => {
     useEffect(() => {
         if(coordinatesData.length === 0){
             // const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
-            const fileName = ['../../../public/countries-110m.json', '../../../public/coordinates.json']
+            const fileName = ['../../../dist/data/countries-110m.json', '../../../dist/data/coordinates.json']
             queue()
                 .defer(json, fileName[0])
                 .defer(json, fileName[1])
