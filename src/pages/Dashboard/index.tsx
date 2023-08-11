@@ -12,7 +12,6 @@ import Markers from "../../components/Markers";
 import MapLegend from "../../components/MapLegend";
 import TableLoader from "../../components/Loader/TableLoader";
 import MapLoader from "../../components/Loader/MapLoader";
-import "../../../dist/data/coordinates.json"
 
 const Dashboard = () => {
     const mapViewBox:string                     = '0 0 960 470';
