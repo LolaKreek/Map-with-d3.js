@@ -26,16 +26,6 @@ const Dashboard = () => {
         if(coordinatesData.length === 0){
             // const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
             const fileName = ["/countries-110m.json", "/coordinates.json"]
-            // const fileName = ["/index.html"]
-            // queue()
-            //     .defer(json, fileName[0])
-            //     .await((error, d1) => {
-            //         if(error){
-            //             console.log(`You have a problem: ${error}`);
-            //         }
-            //         console.log("d1: ", d1);
-            //         console.log("error: ", error);
-            //     })
             queue()
                 .defer(json, fileName[0])
                 .defer(json, fileName[1])
