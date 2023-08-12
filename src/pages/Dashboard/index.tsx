@@ -29,7 +29,7 @@ const Dashboard = () => {
             const exFile = "/ex.json";
             
             fetch(exFile)
-                .then(response => response.json())
+                .then(response => {console.log("response: ", response); response.json(); console.log("response json: ", response.json())})
                 .then(data => {
                     console.log("data: ", data)
                 })
