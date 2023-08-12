@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 // import { feature } from "topojson-client";
 // import { FeatureCollection } from "geojson";
-import { queue } from "d3-queue";
-import { json } from "d3-request";
+// import { queue } from "d3-queue";
+// import { json } from "d3-request";
 import { WorldMapTypes } from "../../components/WorldMap/types";
 import MarkerTable from "../../components/MarkerTable";
 import WorldMap from "../../components/WorldMap";
@@ -27,11 +27,14 @@ const Dashboard = () => {
             // const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
             // const fileName = ["/countries-110m.json", "/coordinates.json"]
             const exFile = "/ex.json";
-            queue()
-                .defer(json, exFile)
-                .await((error, ex) => {
+            
+            fetch(exFile)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("data: ", data)
+                })
+                .catch(error => {
                     console.log("error: ", error)
-                    console.log("ex: ", ex)
                 })
             // queue()
             //     .defer(json, fileName[0])
