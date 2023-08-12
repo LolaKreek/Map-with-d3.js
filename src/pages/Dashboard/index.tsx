@@ -26,7 +26,7 @@ const Dashboard = () => {
         if(coordinatesData.length === 0){
             // const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
             // const fileName = ["/countries-110m.json", "/coordinates.json"]
-            const exFile = "/ex.json";
+            const exFile = "ex.json";
             
             fetch(exFile)
                 .then(response => {console.log("response: ", response); response.json(); console.log("response json: ", response.json())})
