@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { feature } from "topojson-client";
-import { FeatureCollection } from "geojson";
+// import { feature } from "topojson-client";
+// import { FeatureCollection } from "geojson";
 import { queue } from "d3-queue";
 import { json } from "d3-request";
 import { WorldMapTypes } from "../../components/WorldMap/types";
@@ -18,8 +18,8 @@ const Dashboard = () => {
     const mapRef                                = useRef<SVGSVGElement>(null);
     const markerRef                             = useRef<SVGGElement>(null);
     const title: string                         = 'Status table';
-    const [mapData, setMapData]                 = useState<WorldMapTypes.MapObject>({mapFeatures: []});
-    const [coordinatesData, setCoordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);
+    const [mapData]                 = useState<WorldMapTypes.MapObject>({mapFeatures: []});
+    const [coordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);
     const [ifPageLoad, setIfPageLoad]           = useState<boolean>(false);
 
     useEffect(() => {
