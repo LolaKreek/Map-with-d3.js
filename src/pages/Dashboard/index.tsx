@@ -25,21 +25,28 @@ const Dashboard = () => {
     useEffect(() => {
         if(coordinatesData.length === 0){
             // const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
-            const fileName = ["/countries-110m.json", "/coordinates.json"]
+            // const fileName = ["/countries-110m.json", "/coordinates.json"]
+            const exFile = "/ex.json";
             queue()
-                .defer(json, fileName[0])
-                .defer(json, fileName[1])
-                .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
-                    if(error){
-                        console.log(`You have a problem: ${error}`);
-                    }
-                    console.log("d1: ", d1);
-                    console.log("d2: ", d2);
-                    console.log("error: ", error);
-                    setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
-                    setCoordinatesData(d2);
+                .defer(json, exFile)
+                .await((error, ex) => {
+                    console.log("error: ", error)
+                    console.log("ex: ", ex)
                 })
-            console.log("fileName: ", fileName);
+            // queue()
+            //     .defer(json, fileName[0])
+            //     .defer(json, fileName[1])
+            //     .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
+            //         if(error){
+            //             console.log(`You have a problem: ${error}`);
+            //         }
+            //         console.log("d1: ", d1);
+            //         console.log("d2: ", d2);
+            //         console.log("error: ", error);
+            //         setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
+            //         setCoordinatesData(d2);
+            //     })
+            console.log("exFile: ", exFile);
         }
         setIfPageLoad(true);
     }, [])
