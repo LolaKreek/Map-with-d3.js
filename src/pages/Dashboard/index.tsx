@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-// import { feature } from "topojson-client";
-// import { FeatureCollection } from "geojson";
-// import { queue } from "d3-queue";
-// import { json } from "d3-request";
+import { feature } from "topojson-client";
+import { FeatureCollection } from "geojson";
+import { queue } from "d3-queue";
+import { json } from "d3-request";
 import { WorldMapTypes } from "../../components/WorldMap/types";
 import MarkerTable from "../../components/MarkerTable";
 import WorldMap from "../../components/WorldMap";
@@ -18,38 +18,39 @@ const Dashboard = () => {
     const mapRef                                = useRef<SVGSVGElement>(null);
     const markerRef                             = useRef<SVGGElement>(null);
     const title: string                         = 'Status table';
-    const [mapData]                 = useState<WorldMapTypes.MapObject>({mapFeatures: []});
-    const [coordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);
+    const [mapData, setMapData]                 = useState<WorldMapTypes.MapObject>({mapFeatures: []});
+    const [coordinatesData, setCoordinatesData] = useState<WorldMapTypes.CoordinatedData[]>([]);
     const [ifPageLoad, setIfPageLoad]           = useState<boolean>(false);
 
     useEffect(() => {
         if(coordinatesData.length === 0){
             // const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json']
-            // const fileName = ["/countries-110m.json", "/coordinates.json"]
-            const exFile = "ex.json";
+            const fileName = ["/countries-110m.json", "/coordinates.json"]
             
-            fetch(exFile)
-                .then(response => {console.log("response: ", response); response.json(); console.log("response json: ", response.json())})
-                .then(data => {
-                    console.log("data: ", data)
-                })
-                .catch(error => {
-                    console.log("error: ", error)
-                })
-            // queue()
-            //     .defer(json, fileName[0])
-            //     .defer(json, fileName[1])
-            //     .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
-            //         if(error){
-            //             console.log(`You have a problem: ${error}`);
-            //         }
-            //         console.log("d1: ", d1);
-            //         console.log("d2: ", d2);
-            //         console.log("error: ", error);
-            //         setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
-            //         setCoordinatesData(d2);
+            // const exFile = "ex.json";
+            // fetch(exFile)
+            //     .then(response => {console.log("response: ", response); response.json(); console.log("response json: ", response.json())})
+            //     .then(data => {
+            //         console.log("data: ", data)
             //     })
-            console.log("exFile: ", exFile);
+            //     .catch(error => {
+            //         console.log("error: ", error)
+            //     })
+            
+            queue()
+                .defer(json, fileName[0])
+                .defer(json, fileName[1])
+                .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
+                    if(error){
+                        console.log(`You have a problem: ${error}`);
+                    }
+                    console.log("d1: ", d1);
+                    console.log("d2: ", d2);
+                    console.log("error: ", error);
+                    setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
+                    setCoordinatesData(d2);
+                })
+            console.log("fileName: ", fileName);
         }
         setIfPageLoad(true);
     }, [])
