@@ -5,7 +5,7 @@
     D3.js - https://d3js.org
 
 # Getting Started
-Project link: 
+Project link: map-d3js-lalita-klimchuk.netlify.app
 
 ## Installation process
 - Install any IDE of your choice
