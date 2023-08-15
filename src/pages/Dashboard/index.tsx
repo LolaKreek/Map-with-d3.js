@@ -27,7 +27,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(coordinatesData.length === 0){
-            const fileName = ['../public/countries-110m.json', '/public/coordinates.json']
+            const fileName = ['/countries-110m.json', './coordinates.json']
 
             if(CountriesJson && CoordinatesJson){
                 // setCoordinatesData(CoordinatesJson);
