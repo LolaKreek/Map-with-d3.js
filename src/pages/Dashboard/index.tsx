@@ -12,6 +12,7 @@ import Markers from "../../components/Markers";
 import MapLegend from "../../components/MapLegend";
 import TableLoader from "../../components/Loader/TableLoader";
 import MapLoader from "../../components/Loader/MapLoader";
+
 import CountriesJson from "../../public/countries-110m.json";
 import CoordinatesJson from "../../public/coordinates.json";
 
@@ -26,25 +27,25 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(coordinatesData.length === 0){
-            // const fileName = ['../src/public/countries-110m.json', '../src/public/coordinates.json']
+            const fileName = ['../src/public/countries-110m.json', '../src/public/coordinates.json']
 
             if(CountriesJson && CoordinatesJson){
-                setCoordinatesData(CoordinatesJson);
-                setMapData({mapFeatures: (((feature(CountriesJson, CountriesJson.objects.countries)) as unknown) as FeatureCollection).features})
+                // setCoordinatesData(CoordinatesJson);
+                // setMapData({mapFeatures: (((feature(CountriesJson, CountriesJson.objects.countries)) as unknown) as FeatureCollection).features})
             }
 
-            // queue()
-            //     .defer(json, fileName[0])
-            //     .defer(json, fileName[1])
-            //     .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
-            //         if(error){
-            //             console.log(`You have a problem: ${error}`);
-            //         }
-            //         console.log("d1: ", d1);
-            //         // console.log("error: ", error);
-            //         // setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
-            //         // setCoordinatesData(d2);
-            //     })
+            queue()
+                .defer(json, fileName[0])
+                .defer(json, fileName[1])
+                .await((error, d1, d2: WorldMapTypes.CoordinatedData[]) => {
+                    if(error){
+                        console.log(`You have a problem: ${error}`);
+                    }
+                    console.log("d1: ", d1);
+                    // console.log("error: ", error);
+                    setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
+                    setCoordinatesData(d2);
+                })
         }
         setIfPageLoad(true);
     }, [])
