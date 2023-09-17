@@ -13,9 +13,6 @@ import MapLegend from "../../components/MapLegend";
 import TableLoader from "../../components/Loader/TableLoader";
 import MapLoader from "../../components/Loader/MapLoader";
 
-import CountriesJson from "../../public/countries-110m.json";
-import CoordinatesJson from "../../public/coordinates.json";
-
 const Dashboard = () => {
     const mapViewBox:string                     = '0 0 960 470';
     const mapRef                                = useRef<SVGSVGElement>(null);
@@ -27,12 +24,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(coordinatesData.length === 0){
-            const fileName = ['/countries-110m.json', './coordinates.json']
-
-            if(CountriesJson && CoordinatesJson){
-                // setCoordinatesData(CoordinatesJson);
-                // setMapData({mapFeatures: (((feature(CountriesJson, CountriesJson.objects.countries)) as unknown) as FeatureCollection).features})
-            }
+            const fileName = ['../src/data/countries-110m.json', '../src/data/coordinates.json'];
 
             queue()
                 .defer(json, fileName[0])
@@ -41,8 +33,6 @@ const Dashboard = () => {
                     if(error){
                         console.log(`You have a problem: ${error}`);
                     }
-                    console.log("d1: ", d1);
-                    // console.log("error: ", error);
                     setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
                     setCoordinatesData(d2);
                 })
