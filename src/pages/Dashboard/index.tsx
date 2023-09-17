@@ -42,7 +42,7 @@ const Dashboard = () => {
                         console.log(`You have a problem: ${error}`);
                     }
                     console.log("d1: ", d1);
-                    // console.log("error: ", error);
+                    console.log("error: ", error);
                     setMapData({mapFeatures: (((feature(d1, d1.objects.countries)) as unknown) as FeatureCollection).features})
                     setCoordinatesData(d2);
                 })
