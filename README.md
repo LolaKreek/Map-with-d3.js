@@ -6,7 +6,7 @@
 
 # Getting Started
 Project link: 
-map-d3js-lalita-klimchuk.netlify.app
+https://map-d3js-lalita-klimchuk.netlify.app
 
 ## Installation process
 - Install any IDE of your choice
