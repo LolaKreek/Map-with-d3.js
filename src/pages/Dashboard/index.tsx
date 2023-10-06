@@ -24,7 +24,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if(coordinatesData.length === 0){
-            const fileName = ['https://main--map-d3js-lalita-klimchuk.netlify.app/data/countries-110m.json', 'https://main--map-d3js-lalita-klimchuk.netlify.app/data/coordinates.json'];
+            const fileName = ['./data/countries-110m.json', './data/coordinates.json'];
 
             queue()
                 .defer(json, fileName[0])
