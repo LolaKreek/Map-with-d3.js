@@ -1,0 +1,199 @@
+[
+    {
+      "id": 1,
+      "statusColor": 1,
+      "name": "First container",
+      "status": "Documents are ready",
+      "ifChecked": true,
+      "correctness": "Yes",
+      "notes": "It's okay",
+      "latitude": -73.9919,
+      "longitude": 40.7529
+    },
+    {
+      "id": 2,
+      "statusColor": 2,
+      "name": "Second container",
+      "status": "Documents are ready",
+      "ifChecked": true,
+      "correctness": "No (3 problems)",
+      "notes": "It's almost okay",
+      "latitude": 22.26951089827227,
+      "longitude": 52.173312341167346
+    },
+    {
+      "id": 3,
+      "statusColor": 3,
+      "name": "Third container",
+      "status": "Documents not ready",
+      "ifChecked": false,
+      "correctness": "Yes",
+      "notes": "It's okay",
+      "latitude": 2.642935491049544,
+      "longitude": 49.761451547517524
+    },
+    {
+      "id": 4,
+      "statusColor": 2,
+      "name": "Fourth container",
+      "status": "Documents not ready",
+      "ifChecked": false,
+      "correctness": "No (5 problems)",
+      "notes": "It's not okay",
+      "latitude": 138.17698419088666,
+      "longitude": -25.103536697023166
+    },
+    {
+      "id": 5,
+      "statusColor": 1,
+      "name": "Fifth container",
+      "status": "Documents are ready",
+      "ifChecked": true,
+      "correctness": "No (8 problems)",
+      "notes": "It's okay",
+      "latitude": 129.08826802422786,
+      "longitude": 35.056798734110287023166
+    },
+    {
+     "id": 6,
+     "statusColor": 1,
+     "name": "Sixth container",
+     "status": "Documents are ready",
+     "ifChecked": false,
+     "correctness": "Yes",
+     "notes": "It's okay",
+     "latitude": 125.47120444152677,
+     "longitude": 40.021644310508385
+   },
+   {
+     "id": 7,
+     "statusColor": 3,
+     "name": "Seventh container",
+     "status": "Documents are ready",
+     "ifChecked": true,
+     "correctness": "No (5 problems)",
+     "notes": "It's okay",
+     "latitude": 20.557191842845963,
+     "longitude": 52.26438424864178
+   }, {
+     "id": 8,
+     "statusColor": 2,
+     "name": "Eighth container",
+     "status": "Documents not ready", 
+     "ifChecked": true,
+     "correctness": "No (4 problems)",
+     "notes": "It's okay",
+     "latitude": 8.584034248287828,
+     "longitude": 50.09807204232654
+   }, 
+   {
+     "id": 9,
+     "statusColor": 2,
+     "name": "Nineth container",
+     "status": "Documents not ready", 
+     "ifChecked": false,
+     "correctness": "No (4 problems)",
+     "notes": "It's okay",
+     "latitude": 6.984034248287828,
+     "longitude": 52.00807204232654
+   }, 
+   {
+     "id": 10,
+     "statusColor": 1,
+     "name": "Tenth container",
+     "status": "Documents not ready",
+     "ifChecked": false,
+     "correctness": "No (8 problems)",
+     "notes": "It's okay",
+     "latitude": -79.67476310789361,
+     "longitude": 43.9864993493831
+   },
+   {
+     "id": 11,
+     "statusColor": 2,
+     "name": "Eleventh container",
+     "status": "Documents are ready",
+     "ifChecked": true,
+     "correctness": "No (7 problems)",
+     "notes": "It's okay",
+     "latitude": -66.38342723789273,
+     "longitude": -34.92647213455113
+   },
+   {
+     "id": 12,
+     "statusColor": 1,
+     "name": "Twelfth container",
+     "status": "Documents are ready",
+     "ifChecked": false,
+     "correctness": "No (6 problems)",
+     "notes": "It's okay",
+     "latitude": 23.089229058869734,
+     "longitude": -30.718223547723138
+   },
+   {
+     "id": 13,
+     "statusColor": 1,
+     "name": "Thirteenth container",
+     "status": "Documents are ready",
+     "ifChecked": true,
+     "correctness": "No (6 problems)",
+     "notes": "It's okay",
+     "latitude": 24.089229058869734,
+     "longitude": -31.718223547723138
+   },
+   {
+     "id": 14,
+     "statusColor": 1,
+     "name": "Fourteenth container",
+     "status": "Documents are ready",
+     "ifChecked": true,
+     "correctness": "No (6 problems)",
+     "notes": "It's okay",
+     "latitude": 25.089229058869734,
+     "longitude": -33.718223547723138
+   },
+   {
+     "id": 15,
+     "statusColor": 3,
+     "name": "Fifteenth container",
+     "status": "Documents not ready",
+     "ifChecked": false,
+     "correctness": "No (3 problems)",
+     "notes": "It's okay",
+     "latitude": 55.27898016486054,
+     "longitude": 25.217673845312397
+   },
+   {
+     "id": 16,
+     "statusColor": 3,
+     "name": "Sixteenth container",
+     "status": "Documents are ready",
+     "ifChecked": true,
+     "correctness": "No (3 problems)",
+     "notes": "It's okay",
+     "latitude": 1.655472203335625,
+     "longitude": 50.96120031119269
+   },
+   {
+     "id": 17,
+     "statusColor": 3,
+     "name": "Seventeenth container",
+     "status": "Documents not ready",
+     "ifChecked": false,
+     "correctness": "No (3 problems)",
+     "notes": "It's okay",
+     "latitude": 4.655472203335625,
+     "longitude": 50.96120031119269
+   },
+   {
+     "id": 18,
+     "statusColor": 3,
+     "name": "Eighteenth container",
+     "status": "Documents are ready",
+     "ifChecked": false,
+     "correctness": "No (3 problems)",
+     "notes": "It's okay",
+     "latitude": 5.655472203335625,
+     "longitude": 50.96120031119269
+   }
+   ]
